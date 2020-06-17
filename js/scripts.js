@@ -79,7 +79,7 @@ function attachContactListeners() {
     addressBook.deleteContact(this.id);
     $("#show-contact").hide();
     displayContactDetails(addressBook);
-  }
+  })
 };
 
 $(document).ready(function() {
@@ -90,6 +90,11 @@ $(document).ready(function() {
     const inputtedLastName = $("input#new-last-name").val();
     const inputtedPhoneNumber = $("input#new-phone-number").val();
     let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
+
+    $("input#new-first-name").val("");
+    $("input#new-last-name").val("");
+    $("input#new-phone-number").val("");
+
     addressBook.addContact(newContact);
     displayContactDetails(addressBook);
   });
